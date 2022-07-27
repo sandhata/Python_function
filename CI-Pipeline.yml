@@ -22,25 +22,6 @@ steps:
 - script: ls -lrt
   displayName: 'Run a one-line script'
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'Sonar Cloud Azure Connection'
-    organization: 'raghuram-test'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'HelloWorld-Func'
-    cliProjectName: 'HelloWorld-Func'
-    cliSources: '.'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner, 
-      # Put one key=value per line, example:
-      #sonar.exclusions=**/*.json
-
-- task: SonarCloudAnalyze@1
-
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
 
 - task: ArchiveFiles@2
   inputs:
