@@ -34,3 +34,11 @@ steps:
   inputs:
     PathtoPublish: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
     ArtifactName: $(function_app_name)
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo $(System.AccessToken)
