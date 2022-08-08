@@ -35,3 +35,10 @@ steps:
     PathtoPublish: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
     ArtifactName: $(function_app_name)
 
+- task: InvokeRESTAPI@1
+  inputs:
+    connectionType: 'connectedServiceNameARM'
+    azureServiceConnection: 'AzureConnection'
+    method: 'GET'
+    urlSuffix: 'https://dev.azure.com/sandhata/_apis/build/retention/history?api-version=7.1-preview.1'
+    waitForCompletion: 'false'
